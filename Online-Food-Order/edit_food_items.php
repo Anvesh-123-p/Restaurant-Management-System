@@ -138,7 +138,7 @@ header('Location: managerlogin.php');
     name='$name', price='$price',
     description='$description' where F_ID='$F_ID'");
     }
-    $query = mysqli_query($conn, "SELECT * FROM food f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check') ORDER BY F_ID");
+    $query = mysqli_query($conn, "SELECT * FROM FOOD f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check') ORDER BY F_ID");
     while ($row = mysqli_fetch_array($query)) {
 
       ?>
@@ -158,7 +158,7 @@ header('Location: managerlogin.php');
     <?php
     if (isset($_GET['update'])) {
     $update = $_GET['update'];
-    $query1 = mysqli_query($conn, "SELECT * FROM food WHERE F_ID=$update");
+    $query1 = mysqli_query($conn, "SELECT * FROM FOOD WHERE F_ID=$update");
     while ($row1 = mysqli_fetch_array($query1)) {
 
     ?>
